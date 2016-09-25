@@ -1,5 +1,14 @@
 Markers = new Mongo.Collection('markers');
 
+Meteor.startup(function(){
+  if(Meteor.isClient) {  
+      console.log('hello');
+    GoogleMaps.load({
+    key: 'AIzaSyD81kt-LoD3_Vqyqhd1yw9YlHq8J3SHpEg'
+    });
+  }
+});
+
 if (Meteor.isClient) {
   Template.map.onCreated(function() {
     GoogleMaps.ready('map', function(map) {
