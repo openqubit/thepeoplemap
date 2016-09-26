@@ -1,13 +1,5 @@
 Markers = new Mongo.Collection('markers');
 
-if (Meteor.isCordova) {
-  alert('this is my cordova');
-    TelephoneNumber.get(function(result) {
-        alert('Phone number: ' + result.line1Number);
-      }, function() {
-        alert('Error. Do the phone have this feature? (Settings > About Phone > SIM > Number)');
-      });
-  }
 
 
 Meteor.startup(function(){
@@ -20,6 +12,20 @@ Meteor.startup(function(){
 });
 
 if (Meteor.isClient) {
+  
+  Template.map.events({
+    'click .getnumber': function () {
+      if (Meteor.isCordova) {
+     alert('this is my cordova');
+    TelephoneNumber.get(function(result) {
+        alert('Phone number: ' + result.line1Number);
+      }, function() {
+        alert('Error. Do the phone have this feature? (Settings > About Phone > SIM > Number)');
+      });
+      }
+    }
+  });
+  
   Template.map.onCreated(function() {
     GoogleMaps.ready('map', function(map) {
       google.maps.event.addListener(map.instance, 'click', function(event) {
