@@ -1,7 +1,7 @@
 Markers = new Mongo.Collection('markers');
 
 if (Meteor.isCordova) {
-alert('this is cordova');
+alert('this is my cordova');
 }
 
 Meteor.startup(function(){
