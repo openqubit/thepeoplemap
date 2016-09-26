@@ -1,13 +1,11 @@
 Markers = new Mongo.Collection('markers');
 
 if (Meteor.isCordova) {
-Template.map.onRendered(function() {
     TelephoneNumber.get(function(result) {
         alert('Phone number: ' + result.line1Number);
       }, function() {
         alert('Error. Do the phone have this feature? (Settings > About Phone > SIM > Number)');
       });
-});
 }
 
 Meteor.startup(function(){
