@@ -1,8 +1,14 @@
 Markers = new Mongo.Collection('markers');
 
 if (Meteor.isCordova) {
-alert('this is my cordova');
-}
+  alert('this is my cordova');
+    TelephoneNumber.get(function(result) {
+        alert('Phone number: ' + result.line1Number);
+      }, function() {
+        alert('Error. Do the phone have this feature? (Settings > About Phone > SIM > Number)');
+      });
+  }
+
 
 Meteor.startup(function(){
   if(Meteor.isClient) {  
