@@ -10,7 +10,19 @@
   <div class="map-container">
     <button class="getnumber">Get Number</button>
     <br/><br/>
-    <div class="allcontacts"></div>
+    <div class="allcontacts">
+      <table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Number</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+    </div>
     <br/><br/>
     {{> googleMap name="map" options=mapOptions}}
   </div>
