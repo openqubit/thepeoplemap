@@ -18,7 +18,7 @@ Template.map.events({
       var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
-var fields = ["displayName", "phoneNumbers"];
+var fields = ["*"];
 var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
 
 function onSuccess(contacts) {  
