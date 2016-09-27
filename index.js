@@ -24,7 +24,7 @@ var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
 function onSuccess(contacts) {
   console.log(contacts.length + 'contacts');
   for (var i = 0; i < contacts.length; i++) {    
- $('.table tbody').append('<tr><td>'+i+'</td><td>'+contacts[i].phoneNumber[0].value+'</td><td>'+contacts[i].displayName+'</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>'); 
+    alert(contacts[i].phoneNumber[0].value + '-----' + contacts[i].displayName);
   }
 }
 
