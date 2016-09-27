@@ -24,7 +24,7 @@ var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
 function onSuccess(contacts) {
   console.log(contacts.length + 'contacts');
   for (var i = 0; i < contacts.length; i++) {    
-    alert(contacts[i].phoneNumber[0].value + '-----' + contacts[i].displayName);
+    alert(contacts[i].phoneNumbers[0].value + '-----' + contacts[i].displayName);
   }
 }
 
