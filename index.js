@@ -16,12 +16,22 @@ if (Meteor.isClient) {
   Template.map.events({
     'click .getnumber': function () {
       if (Meteor.isCordova) {
-     alert('this is my cordova');
-    TelephoneNumber.get(function(result) {
-        alert('Phone number: ' + result.line1Number);
-      }, function() {
-        alert('Error. Do the phone have this feature? (Settings > About Phone > SIM > Number)');
-      });
+      var options = new ContactFindOptions();
+options.filter = "";
+options.multiple = true;
+var fields = ["displayName", "name"];
+vm.contacts = navigator.contacts.find(fields, onSuccess, onError, options);
+
+function onSuccess(contacts) {
+  console.log(contacts.length + 'contacts');
+  for (var i = 0; i < contacts.length; i++) {
+    alert("Display Name = " + contacts[i].displayName);
+  }
+}
+
+function onError(contactError) {
+  console.log('onError!');
+}
       }
     }
   });
