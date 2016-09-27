@@ -21,12 +21,19 @@ options.multiple = true;
 var fields = ["displayName", "phoneNumbers"];
 var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
 
-function onSuccess(contacts) {
-  console.log(contacts.length + 'contacts');
-  for (var i = 0; i < contacts.length; i++) {
-   $('.table tbody').append('<tr class="child"><td>"'+i+'"</td><td>"'+contacts[i].phoneNumbers[0]+'"</td><td>"'+contacts[i].displayName+'"</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>');
-
-  }
+function onSuccess(contacts) {  
+           for (var i=0; i<contacts.length; i++)
+        {
+               console.log("Name:" + contacts[i].displayName + "\n"+
+                         "Birthday:"+ contacts[i].birthday)
+                        
+for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
+                               console.log("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
+                                         "Value: "  + contacts[i].phoneNumbers[j].value );
+                        }
+ $('.table tbody').append('<tr class="child"><td>"'+i+'"</td><td>"'+contacts[i].phoneNumbers[j].value+'"</td><td>"'+contacts[i].displayName+'"</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>');
+    
+ }
 }
 
 function onError(contactError) {
