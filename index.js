@@ -16,19 +16,21 @@ if (Meteor.isClient) {
   Template.map.events({
     'click .getnumber': function () {
       if (Meteor.isCordova) {
-         alert('cordova connected');
       var options = new ContactFindOptions();
 options.filter = "";
 options.multiple = true;
-var fields = ["displayName", "name"];
+var fields = ["displayName","phoneNumbers"];
 var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
 
 function onSuccess(contacts) {
-  alert('we are inside success');
   console.log(contacts.length + 'contacts');
-  for (var i = 0; i < contacts.length; i++) {
-    alert("Display Name = " + contacts[i].displayName);
-  }
+     for(var i = 0; i < contacts.length; i++) {
+         console.log(contacts[i].id + " - " + contacts[i].displayName);
+         for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+            var phone = contacts[i].phoneNumbers[j];
+            console.log("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
+         }
+      }
 }
 
 function onError(contactError) {
