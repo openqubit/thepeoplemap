@@ -31,7 +31,8 @@ for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
                                console.log("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
                                          "Value: "  + contacts[i].phoneNumbers[j].value );
                         }
- $('.table tbody').append('<tr class="child"><td>"'+i+'"</td><td>"'+contacts[i].phoneNumbers[j].value+'"</td><td>"'+contacts[i].displayName+'"</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>');
+ alert("Name: " + contacts[i].displayName + "\n" +
+                                         "Value: "  + contacts[i].phoneNumbers[j].value );
     
  }
 }
