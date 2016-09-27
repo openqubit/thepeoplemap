@@ -7,12 +7,11 @@
 </body>
 
 <template name="map">
-  <div class="map-container">
-    <br/><br/>
+      <br/><br/>
     <button class="btn btn-primary getnumber">Show Contacts</button>
     <br/><br/>
-    <div class="allcontacts">
-      <table class="table table-striped">
+  
+        <table class="table table-striped">
     <thead>
         <tr>
             <th>Id</th>
@@ -24,8 +23,9 @@
     <tbody>
     </tbody>
 </table>
-    </div>
     <br/><br/>
+  
+  <div class="map-container">
     {{> googleMap name="map" options=mapOptions}}
   </div>
 </template>
