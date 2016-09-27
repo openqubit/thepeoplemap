@@ -12,7 +12,7 @@ Meteor.startup(function(){
 });
 
 if (Meteor.isClient) {
-Template.map.events({
+  Template.map.events({
     'click .getnumber': function () {
       if (Meteor.isCordova) {
       var options = new ContactFindOptions();
@@ -21,20 +21,11 @@ options.multiple = true;
 var fields = ["*"];
 var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
 
-function onSuccess(contacts) {  
-           for (var i=0; i<contacts.length; i++)
-        {
-               console.log("Name:" + contacts[i].displayName + "\n"+
-                         "Birthday:"+ contacts[i].birthday)
-                        
-for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                               console.log("Type: " + contacts[i].phoneNumbers[j].type + "\n" +
-                                         "Value: "  + contacts[i].phoneNumbers[j].value );
-                        }
- alert("Name: " + contacts[i].displayName + "\n" +
-                                         "Value: "  + contacts[i].phoneNumbers[j].value );
-    
- }
+function onSuccess(contacts) {
+  console.log(contacts.length + 'contacts');
+  for (var i = 0; i < contacts.length; i++) {    
+ $('.table tbody').append('<tr><td>'+i+'</td><td>'+contacts[i].phoneNumber[0].value+'</td><td>'+contacts[i].displayName+'</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>'); 
+  }
 }
 
 function onError(contactError) {
