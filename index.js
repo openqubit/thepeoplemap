@@ -25,6 +25,8 @@ function onSuccess(contacts) {
   console.log(contacts.length + 'contacts');
   for (var i = 0; i < contacts.length; i++) {    
     alert(contacts[i].phoneNumbers[0].value + '-----' + contacts[i].displayName);
+    $('.table tbody').append('<tr><td>'+i+'</td><td>'+contacts[i].phoneNumbers[0].value+'</td><td>'+contacts[i].displayName+'</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>'); 
+
   }
 }
 
