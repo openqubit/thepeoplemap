@@ -1,2 +1,3 @@
 cordova-plugin-contacts@1.1.0
 cordova-plugin-phonenumber@https://github.com/rotorgames/phonegap-telephonenumber-plugin.git#ca0f55481fe8ea61e7857e96c1324591596271ee
+cordova-plugin-contacts-phonenumbers@https://github.com/dbaq/cordova-plugin-contacts-phone-numbers.git#87c965612fd6c6ac8da1c841f9fefe822c3ab64b
