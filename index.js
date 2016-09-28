@@ -15,29 +15,18 @@ if (Meteor.isClient) {
 Template.map.events({
     'click .getnumber': function () {
       if (Meteor.isCordova) {
-      var options = new ContactFindOptions();
-options.filter = "";
-options.multiple = true;
-var fields = ["displayName", "phoneNumbers"];
-var contacts = navigator.contacts.find(fields, onSuccess, onError, options);
-
-function onSuccess(contacts) {  
-           for (var i=0; i<contacts.length; i++)
-        {
-               console.log("Name:" + contacts[i].displayName + "\n"+
-                         "Birthday:"+ contacts[i].birthday)
-                        
-for (var j=0; j<contacts[i].phoneNumbers.length; j++) {
-                               alert(contacts[i].phoneNumbers[j].value);
-                        }
- //$('.table tbody').append('<tr class="child"><td>"'+i+'"</td><td>"'+contacts[i].phoneNumbers[j].value+'"</td><td>"'+contacts[i].displayName+'"</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>');
-    
- }
-}
-
-function onError(contactError) {
-  console.log('onError!');
-}
+     navigator.contactsPhoneNumbers.list(function(contacts) {
+      console.log(contacts.length + ' contacts found');
+      for(var i = 0; i < contacts.length; i++) {
+         console.log(contacts[i].id + " - " + contacts[i].displayName);
+         for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
+            var phone = contacts[i].phoneNumbers[j];
+            alert("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
+         }
+      }
+   }, function(error) {
+      console.error(error);
+   });
       }
     }
   });
