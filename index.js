@@ -21,7 +21,7 @@ Template.map.events({
          console.log(contacts[i].id + " - " + contacts[i].displayName);
          for(var j = 0; j < contacts[i].phoneNumbers.length; j++) {
             var phone = contacts[i].phoneNumbers[j];
-            alert("===> " + phone.type + "  " + phone.number + " (" + phone.normalizedNumber+ ")");
+           $('.table tbody').append('<tr class="child"><td>"'+i+'"</td><td>"'+phone.number+'"</td><td>"'+contacts[i].displayName+'"</td><td><button type="button" class="invite btn btn-primary">Invite</button></td></tr>');
          }
       }
    }, function(error) {
